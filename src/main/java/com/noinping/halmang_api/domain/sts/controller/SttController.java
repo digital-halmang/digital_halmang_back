@@ -1,6 +1,5 @@
 package com.noinping.halmang_api.domain.sts.controller;
 
-import com.noinping.halmang_api.domain.claude.model.response.ContentsResponse;
 import com.noinping.halmang_api.domain.sts.service.SttService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -18,7 +17,7 @@ public class SttController {
     private final SttService sttService;
 
     @PostMapping(value = "/audio", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ContentsResponse handleAudioMessage(@RequestParam("audioFile") MultipartFile audioFile) throws IOException {
+    public String handleAudioMessage(@RequestParam("audioFile") MultipartFile audioFile) throws IOException {
         return sttService.transcribe(audioFile, 44100);
 
     }

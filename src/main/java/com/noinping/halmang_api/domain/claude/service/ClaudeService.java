@@ -1,13 +1,7 @@
 package com.noinping.halmang_api.domain.claude.service;
 
-import com.noinping.halmang_api.domain.claude.model.response.Blog;
-import com.noinping.halmang_api.domain.claude.model.response.Caption;
-import com.noinping.halmang_api.domain.claude.model.response.CardNews;
-import com.noinping.halmang_api.domain.claude.model.response.ContentsResponse;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.ai.anthropic.AnthropicChatModel;
-import org.springframework.ai.chat.model.ChatResponse;
-import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.stereotype.Service;
 
 @RequiredArgsConstructor
@@ -137,26 +131,26 @@ public class ClaudeService {
               }
             }
             """;
+//
+//    private final AnthropicChatModel anthropicChatModel;
 
-    private final AnthropicChatModel anthropicChatModel;
-
-    public ContentsResponse prompt(String text) {
-        ChatResponse response = this.anthropicChatModel.call(
-                new Prompt(firstPrompt + " " + text));
-
-        CardNews cardNews = new CardNews(response);
-
-        ChatResponse response2 = this.anthropicChatModel.call(
-                new Prompt(secondPrompt + " " + response.getResult().getOutput().getContent()));
-
-        Blog blog = new Blog(response2);
-
-        ChatResponse call = this.anthropicChatModel.call(
-                new Prompt(secondPrompt + " " + text));
-
-        Caption caption = new Caption(call);
-
-        return new ContentsResponse(blog, cardNews, caption);
-    }
+//    public ContentsResponse prompt(String text) {
+//        ChatResponse response = this.anthropicChatModel.call(
+//                new Prompt(firstPrompt + " " + text));
+//
+//        CardNews cardNews = new CardNews(response);
+//
+//        ChatResponse response2 = this.anthropicChatModel.call(
+//                new Prompt(secondPrompt + " " + response.getResult().getOutput().getContent()));
+//
+//        Blog blog = new Blog(response2);
+//
+//        ChatResponse call = this.anthropicChatModel.call(
+//                new Prompt(secondPrompt + " " + text));
+//
+//        Caption caption = new Caption(call);
+//
+//        return new ContentsResponse(blog, cardNews, caption);
+//    }
 
 }

@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.2.2'
+	id 'org.springframework.boot' version '2.7.6'
 	id 'io.spring.dependency-management' version '1.1.6'
 }
 
@@ -21,8 +21,8 @@ configurations {
 
 repositories {
 	mavenCentral()
-	maven { url 'https://repo.spring.io/milestone' }
-	maven { url 'https://repo.spring.io/snapshot' }
+//	maven { url 'https://repo.spring.io/milestone' }
+//	maven { url 'https://repo.spring.io/snapshot' }
 }
 
 
@@ -38,13 +38,13 @@ dependencies {
 
 	implementation 'com.mysql:mysql-connector-j:8.0.31'
 
-	implementation 'org.springframework.ai:spring-ai-anthropic-spring-boot-starter'
-
-	// Spring AI BOM 추가
-	implementation platform("org.springframework.ai:spring-ai-bom:1.0.0-SNAPSHOT")
-
-	// Anthropic 의존성 추가
-	implementation 'org.springframework.ai:spring-ai-anthropic'
+//	implementation 'org.springframework.ai:spring-ai-anthropic-spring-boot-starter'
+//
+//	// Spring AI BOM 추가
+//	implementation platform("org.springframework.ai:spring-ai-bom:1.0.0-SNAPSHOT")
+//
+//	// Anthropic 의존성 추가
+//	implementation 'org.springframework.ai:spring-ai-anthropic'
 }
 
 tasks.named('test') {

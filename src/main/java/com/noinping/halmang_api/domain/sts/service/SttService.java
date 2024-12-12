@@ -3,10 +3,7 @@ package com.noinping.halmang_api.domain.sts.service;
 
 import com.google.cloud.speech.v1.*;
 import com.google.protobuf.ByteString;
-import com.noinping.halmang_api.domain.claude.model.response.ContentsResponse;
-import com.noinping.halmang_api.domain.claude.service.ClaudeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -18,10 +15,10 @@ public class SttService {
 
     private final SpeechSettings speechSettings;
 
-    private final ClaudeService claudeService;
+//    private final ClaudeService claudeService;
 
 
-    public ContentsResponse transcribe(MultipartFile audioFile, int frequency) throws IOException {
+    public String transcribe(MultipartFile audioFile, int frequency) throws IOException {
         if (audioFile.isEmpty()) {
             throw new IOException("Required part 'audioFile' is not present.");
         }
@@ -56,7 +53,7 @@ public class SttService {
 
             String string = transcript.toString();
 
-            return claudeService.prompt(string);
+            return string;
         }
     }
 }
