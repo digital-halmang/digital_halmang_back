@@ -1,5 +1,6 @@
 # Build stage
 FROM krmp-d2hub-idock.9rum.cc/goorm/gradle:7.4.1-jdk17
+RUN pwd
 WORKDIR /app
 COPY . .
 RUN ./gradlew build 
