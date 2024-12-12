@@ -13,6 +13,13 @@ java {
 	}
 }
 
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
 configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
