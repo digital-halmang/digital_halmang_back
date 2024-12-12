@@ -1,11 +1,8 @@
-# Build stage
 FROM krmp-d2hub-idock.9rum.cc/goorm/gradle:7.3.1-jdk17 AS builder
-RUN pwd
 WORKDIR /app
 COPY . .
-RUN ./gradlew build 
+RUN gradle build 
 
-# Run stage
 FROM krmp-d2hub-idock.9rum.cc/goorm/openjdk:17
 WORKDIR /app
 COPY --from=builder /app/build/libs/*.jar app.jar
