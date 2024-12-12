@@ -22,6 +22,4 @@ public class SttController {
         return sttService.transcribe(audioFile, 44100);
 
     }
-
-
 }
